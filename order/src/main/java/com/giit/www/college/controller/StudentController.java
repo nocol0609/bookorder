@@ -6,10 +6,8 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
 
 /**
@@ -36,28 +34,27 @@ public class StudentController {
     @RequestMapping("student_add.view")
     public String studentAddView(Model m) {
 
-        return "/admin/college/student_add";
+        return "/admin/college/student_add";   //跳转增加学生界面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("student_update.view")
     public String studentUpdateView(Model m) {
 
-        return "/admin/college/student_update";
+        return "/admin/college/student_update";  //跳转修改学生界面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("add")
-    public String add(Model m, MultipartFile pic, Student student) throws IOException {
-        studentBiz.add(student, pic);
-        return "redirect:/student.do/student.view";
+    public String add(Student student) throws IOException {
+        studentBiz.add(student);//图片暂不可用
+        return "redirect:/student.do/student.view";   //增加学生后跳转学生管理界面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("delete")
-    public String delete(Model m, int studentId) {
+    public String delete(String studentId) {
         studentBiz.delete(studentId);
         return "redirect:/student.do/student.view";
     }
-
 }

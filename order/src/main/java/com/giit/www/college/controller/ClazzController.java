@@ -23,8 +23,8 @@ public class ClazzController {
 
     @RequiresRoles("admin")
     @RequestMapping("add")
-    public String add(String deptName, String specName, String year) {
-        clazzBiz.add(deptName, specName, year);
+    public String add(String deptName, String specName,String className, String year) {
+        clazzBiz.add(deptName, specName,className, year);
         return "redirect:/clazz.do/clazz.view";  //增加后返回班级管理界面
     }
 
