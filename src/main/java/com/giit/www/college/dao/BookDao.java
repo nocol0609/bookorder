@@ -3,10 +3,10 @@ package com.giit.www.college.dao;
 import com.giit.www.entity.Book;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 /**
- * Created by c0de8ug on 16-2-14.
+ * ³Ö¾Ã²ã½Ó¿Ú
+ * @author Nocol
+ *
  */
 public interface BookDao {
 
