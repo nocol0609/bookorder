@@ -3,7 +3,9 @@ package com.giit.www.college.dao;
 import com.giit.www.entity.Timetable;
 
 /**
- * Created by c0de8ug on 16-2-13.
+ * ³Ö¾Ã²ã½Ó¿Ú
+ * @author Nocol
+ *
  */
 public interface TimetableDao {
     public void add(Timetable timetable);

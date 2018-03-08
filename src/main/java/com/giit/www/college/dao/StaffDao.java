@@ -5,7 +5,9 @@ import com.giit.www.entity.Staff;
 import java.util.List;
 
 /**
- * Created by c0de8ug on 16-2-12.
+ * ³Ö¾Ã²ã½Ó¿Ú
+ * @author Nocol
+ *
  */
 public interface StaffDao {
     public List<String> findAllName();

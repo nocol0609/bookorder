@@ -3,9 +3,10 @@ package com.giit.www.college.dao;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * Created by c0de8ug on 16-2-16.
+ * ³Ö¾Ã²ã½Ó¿Ú
+ * @author Nocol
+ *
  */
-
 public interface TakesDao {
     public int getStdCountInSection(int secId);
 
