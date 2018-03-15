@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 
 <!-- Page Content -->
@@ -19,7 +30,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <form action="${pageContext.request.contextPath}/clazz.do/add" method="get">
+                            <form action="${pageContext.request.contextPath}/clazz.do/add" method="post">
                                 <label>所属院系</label>
                                 <select onchange="test(this)" class="form-control" name="deptName">
                                     <option>-请选择-</option>
@@ -142,3 +153,5 @@
 
 </script>
 <jsp:include page="/bottom.jsp"></jsp:include>
+</body>
+</html>

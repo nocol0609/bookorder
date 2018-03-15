@@ -1,5 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 <!-- Page Content -->
 <div id="page-wrapper">
@@ -9,8 +21,8 @@
             <h1 class="page-header">专业管理</h1>
         </div>
         <c:forEach var="entry" items="${deptAndSpec}">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row" align="center">
+                <div class="col-lg-12" align="center">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                                 ${entry.deptName}
@@ -19,7 +31,7 @@
                         <div class="panel-body">
                             <div class="dataTable_wrapper">
 
-                                <table class="table table-striped table-bordered table-hover">
+                                <table class="table table-striped table-bordered table-hover" align="center">
                                     <thead>
                                     <tr>
                                         <th>专业名</th>
@@ -30,11 +42,11 @@
                                     <tbody>
                                     <c:forEach var="specName" items="${entry.specName}">
                                         <tr>
-                                            <td>${specName}</td>
-                                            <td>
+                                            <td width="150">${specName}</td>
+                                            <td width="100">
                                                 <a href="${pageContext.request.contextPath}/spec.do/spec_update.view?specName=${specName}">修改</a>
                                             </td>
-                                            <td>
+                                            <td width="100">
                                                 <a href="${pageContext.request.contextPath}/spec.do/delete?specName=${specName}"
                                                    onclick="return confirm('是否要删除该专业')">删除</a>
                                             </td>
@@ -62,6 +74,7 @@
 <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
-
 <jsp:include page="/bottom.jsp"></jsp:include>
+</body>
 
+</html>

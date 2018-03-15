@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 
 <!-- Page Content -->
@@ -19,13 +30,13 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <form action="${pageContext.request.contextPath}/dept.do/update" method="get">
-                                <label name="id">系名 : ${param.get("deptName")}</label>
+                            <form action="${pageContext.request.contextPath}/dept.do/update" method="post">
+                                <label name="id">学院名 : ${param.deptName}</label>
                                 <input style="display:none" name="deptId"
-                                       value="${param.get("deptId")}">
+                                       value="${param.deptId}">
 
                                 <p></p>
-                                <label>新系名</label>
+                                <label>新学院名</label>
                                 <input class="form-control" name="deptName">
                                 <label></label>
                                 <button type="submit"
@@ -50,3 +61,5 @@
 </div>
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
+</body>
+</html>

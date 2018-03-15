@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
+
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 <!-- Page Content -->
 <div id="page-wrapper">
@@ -19,7 +30,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <form action="${pageContext.request.contextPath}/section.do/addTimetable" method="get" class="form-group">
+                            <form action="${pageContext.request.contextPath}/section.do/addTimetable" method="post" class="form-group">
                                 <label>课程id</label>
                                 <input class="form-control" name="secId">
                                 <label>周次(输入格式1,2,3,4,5,6,7)</label>
@@ -62,3 +73,6 @@
 </div>
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
+
+</body>
+</html>

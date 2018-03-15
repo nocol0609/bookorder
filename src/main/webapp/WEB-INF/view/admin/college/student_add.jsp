@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 
 <!-- Page Content -->
@@ -36,10 +47,10 @@
                                 </select>
                                 <label>联系电话</label>
                                 <input class="form-control" name="telephoneNumber">
-                                <label>班级</label>
-                                <input class="form-control" name="className">
                                 <label>年级</label>
                                 <input class="form-control" name="year">
+                                <label>班级</label>
+                                <input class="form-control" name="className">
                                 <label>生源地</label>
                                 <input class="form-control" name="studentOriginBase">                      
                                 <label></label>
@@ -65,3 +76,5 @@
 </div>
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
+</body>
+</html>

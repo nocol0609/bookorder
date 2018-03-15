@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 
 <!-- Page Content -->
@@ -68,3 +79,6 @@
 </div>
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
+
+</body>
+</html>

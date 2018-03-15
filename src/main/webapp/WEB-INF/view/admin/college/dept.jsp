@@ -1,11 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">系部管理</h1>
+            <h1 class="page-header">学院管理</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -13,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        系信息
+                        学院信息
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -21,7 +32,7 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>系名</th>
+                                    <th>学院名</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -31,17 +42,17 @@
                                     <tr>
                                         <td>${dept.deptName}</td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/dept.do/dept_update.view?deptId=${dept.deptId}&deptName=${dept.deptName}">修改</a>
+                                            <a href="${pageContext.request.contextPath}/dept.do/update?deptId=${dept.deptId}&deptName=${dept.deptName}">修改</a>
                                         </td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/dept.do/delete?deptId=${dept.deptId}"
-                                               onclick="return confirm('是否要删除该系')">删除</a>
+                                               onclick="return confirm('是否要删除该学院')">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/dept.do/dept_add.view" class="btn btn-primary" role="button">添加系</a>
+                            <a href="${pageContext.request.contextPath}/dept.do/dept_add.view" class="btn btn-primary" role="button">添加学院</a>
                         </div>
                         <!-- /.table-responsive -->
                     </div>
@@ -62,3 +73,5 @@
 
 <jsp:include page="/bottom.jsp"></jsp:include>
 
+</body>
+</html>
