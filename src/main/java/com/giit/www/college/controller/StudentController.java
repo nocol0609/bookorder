@@ -1,7 +1,9 @@
 package com.giit.www.college.controller;
 
+import com.giit.www.college.service.SpecBiz;
 import com.giit.www.college.service.StudentBiz;
 import com.giit.www.entity.Student;
+import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class StudentController {
     @Resource(name = "studentBizImpl")
     StudentBiz studentBiz;
 
+    @Resource(name = "specBizImpl")
+    SpecBiz specBiz;
+
     @RequiresRoles("admin")
     @RequestMapping("student.view")
     public String studentView(Model m) {
@@ -33,14 +38,16 @@ public class StudentController {
     @RequiresRoles("admin")
     @RequestMapping("student_add.view")
     public String studentAddView(Model m) {
-
+        m.addAttribute("deptNameList", specBiz.findDpet());
         return "/admin/college/student_add";   //跳转增加学生界面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("student_update.view")
-    public String studentUpdateView(Model m) {
-
+    public String studentUpdateView(Model m ,@Param("studentId") String studentId) {
+        m.addAttribute("deptNameList", specBiz.findDpet());
+        Student student=studentBiz.findStudentByStudentId(studentId);
+        m.addAttribute("student",student);
         return "/admin/college/student_update";  //跳转修改学生界面
     }
 
@@ -55,6 +62,13 @@ public class StudentController {
     @RequestMapping("delete")
     public String delete(String studentId) {
         studentBiz.delete(studentId);
+        return "redirect:/student.do/student.view";
+    }
+
+    @RequiresRoles("admin")
+    @RequestMapping("update")
+    public String update(Student student) {
+        studentBiz.update(student);
         return "redirect:/student.do/student.view";
     }
 }

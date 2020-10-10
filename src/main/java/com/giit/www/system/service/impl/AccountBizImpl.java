@@ -3,6 +3,7 @@ package com.giit.www.system.service.impl;
 import com.giit.www.entity.User;
 import com.giit.www.system.dao.UserDao;
 import com.giit.www.system.service.AccountBiz;
+import com.giit.www.util.PasswordHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,6 +19,9 @@ public class AccountBizImpl implements AccountBiz {
     @Resource
     UserDao userDao;
 
+    @Resource
+    private PasswordHelper passwordHelper;
+
     @Override
     public User findByIdAndPassword(String username, String password) {
         return userDao.findByIdAndPassword(username, password);
@@ -25,7 +29,10 @@ public class AccountBizImpl implements AccountBiz {
 
 
     @Override
-    public void updatePassword(String id, String password) {
-        userDao.updatePassword(id, password);
+    public void updatePassword(String userId, String password) {
+        User user = userDao.findById(userId);
+        user.setPassword(password);
+        passwordHelper.encryptPassword(user);
+        userDao.updatePassword(userId, user.getPassword(),user.getSalt());
     }
 }

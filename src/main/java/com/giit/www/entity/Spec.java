@@ -51,4 +51,15 @@ public class Spec {
     public void setSemester(String semester) {
         this.semester = semester;
     }
+
+    @Override
+    public String toString() {
+        return "Spec{" +
+                "specId=" + specId +
+                ", deptName='" + deptName + '\'' +
+                ", specName='" + specName + '\'' +
+                ", year='" + year + '\'' +
+                ", semester='" + semester + '\'' +
+                '}';
+    }
 }

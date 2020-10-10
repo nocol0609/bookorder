@@ -1,5 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 <%--<jsp:include page="/user.do/findAll"></jsp:include>--%>
 <!-- Page Content -->
@@ -25,8 +35,6 @@
                                     <th>用户名</th>
                                     <th>密码</th>
                                     <th>权限</th>
-                                    <th>邮箱</th>
-                                    <%--<th></th>--%>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -36,7 +44,6 @@
                                         <td>${user.userId}</td>
                                         <td>${user.password}</td>
                                         <td>${user.roleIdsStr}</td>
-                                        <td>email</td>
                                             <%--<td><a href="${pageContext.request.contextPath}/user.do/findById?id=${user.userId}">修改</a></td>--%>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/user.do/delete?id=${user.userId}"
@@ -46,8 +53,6 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/user.do/user_add.view" class="btn btn-primary"
-                               role="button">添加用户</a>
                         </div>
                         <!-- /.table-responsive -->
                     </div>
@@ -68,3 +73,5 @@
 
 <jsp:include page="/bottom.jsp"></jsp:include>
 
+</body>
+</html>

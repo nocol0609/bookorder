@@ -24,4 +24,6 @@ public interface SectionDao {
     int getSecId(String item, String s);
 
     public List<Section> findAll();
+
+    String findSecIdByCourseTitle(@Param("courseTitle") String courseTitle);
 }

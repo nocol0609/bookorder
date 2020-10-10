@@ -30,30 +30,41 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <form action="${pageContext.request.contextPath}/student.do/update" method="post" enctype="multipart/form-data">
-                                <label>学号:${param.studentId}</label>
+                            <form action="${pageContext.request.contextPath}/student.do/update?" method="post" enctype="multipart/form-data">
+                                <label>学号</label>
+                                <input class="form-control" name="studentId" value="${student.studentId}" readonly>
                                 <br>
                                 <label>姓名</label>
-                                <input class="form-control" name="name">
+                                <input class="form-control" name="studentName"value="${student.studentName}">
+                                <br>
                                 <label>身份证号</label>
-                                <input class="form-control" name="idCard">
+                                <input class="form-control" name="idCard" value="${student.idCard}">
+                                <br>
                                 <label>性别</label>
                                 <select class="form-control" name="gender">
-                                    <option>男</option>
-                                    <option>女</option>
+                                    <option>${student.gender}</option>
                                 </select>
+                                <br>
                                 <label>联系电话</label>
-                                <input class="form-control" name="telephoneNumber">
-                                <label>班级</label>
-                                <input class="form-control" name="className">
+                                <input class="form-control" name="telephoneNumber" value="${student.telephoneNumber}">
+                                <br>
                                 <label>年级</label>
-                                <input class="form-control" name="year">
+                                <input class="form-control" name="year" value="${student.year}">
+                                <br>
+                                <label>班级</label>
+                                <input class="form-control" name="className" value="${student.className}">
+                                <br>
                                 <label>生源地</label>
-                                <input class="form-control" name="studentOriginBase">
+                                <input class="form-control" name="studentOriginBase" value="${student.studentOriginBase}">
+                                <br>
+                                <label>所属学院</label>
+                                <select class="form-control" name="deptName">
+                                    <c:forEach var="deptName" items="${deptNameList}">
+                                        <option>${student.deptName}</option>
+                                    </c:forEach>
+                                </select>
                                 <label></label>
-                                <button type="submit"
-                                        class="btn btn-primary form-control">修改
-                                </button>
+                                <button type="submit" class="btn btn-primary form-control">修改</button>
                             </form>
                         </div>
                         <!-- /.table-responsive -->

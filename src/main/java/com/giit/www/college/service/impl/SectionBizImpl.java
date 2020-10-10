@@ -30,6 +30,7 @@ public class SectionBizImpl implements SectionBiz {
     @Resource
     private StaffDao staffDao;
 
+
     @Resource
     private TimetableDao timetableDao;
 
@@ -65,6 +66,11 @@ public class SectionBizImpl implements SectionBiz {
     @Override
     public void addTimetable(Timetable timetable) {
         timetableDao.add(timetable);
+    }
+
+    @Override
+    public String findSecIdByCourseTitle(String courseTitle) {
+        return sectionDao.findSecIdByCourseTitle(courseTitle);
     }
 
 

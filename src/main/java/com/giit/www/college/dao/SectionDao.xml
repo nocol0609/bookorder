@@ -15,7 +15,12 @@
 
     <resultMap id="sec_custom_map" type="SectionCustom" extends="sec_map">
         <result property="teacher" column="staff_name"/>
+        <result property="time" column="time"/>
+        <result property="week" column="week"/>
+        <result property="weeks" column="weeks"/>
+        <result property="classroom" column="classroom"/>
         <collection property="timetableList" ofType="Timetable">
+            <id property="secId" column="sec_id"></id>
             <result property="time" column="time"/>
             <result property="week" column="week"/>
             <result property="weeks" column="weeks"/>
@@ -44,4 +49,10 @@
     <delete id="delete" parameterType="int">
         DELETE FROM section WHERE sec_id = #{value}
     </delete>
+
+    <select id="findSecIdByCourseTitle" parameterType="String" resultType="String">
+        select sec_id
+        from section s
+        where s.course_title=#{courseTitle}
+    </select>
 </mapper>

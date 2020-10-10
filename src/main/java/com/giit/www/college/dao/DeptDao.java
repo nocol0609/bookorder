@@ -1,6 +1,7 @@
 package com.giit.www.college.dao;
 
 import com.giit.www.entity.Dept;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface DeptDao {
 
     public String findIdByName(String deptName);
 
-    public void update(Dept dept);
+    public void update(@Param("deptId") String deptId, @Param("deptName") String deptName);
 
     public void delete(int deptId);
 

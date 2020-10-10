@@ -24,4 +24,6 @@ public interface SectionBiz {
     public List<Staff> findAllStaff();
 
     public void addTimetable(Timetable timetable);
+
+    String findSecIdByCourseTitle(String courseTitle);
 }

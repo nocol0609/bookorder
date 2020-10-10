@@ -6,10 +6,28 @@ package com.giit.www.entity;
  *
  */
 public class Section {
-    int secId;          
-    String courseTitle; //课程名
-    String year;    //年份
-    String staffId; //任课老师id
+    private int secId;
+    private String courseTitle; //课程名
+    private String year;    //年份
+    private String staffId; //任课老师id
+    private String limitCount;
+    private String flag; //判断是否选择该门课
+
+    public String getLimitCount() {
+        return limitCount;
+    }
+
+    public void setLimitCount(String limitCount) {
+        this.limitCount = limitCount;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
 
     public int getSecId() {
         return secId;

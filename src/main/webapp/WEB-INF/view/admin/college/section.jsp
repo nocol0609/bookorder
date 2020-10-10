@@ -29,7 +29,6 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-
                                 <thead>
                                 <tr>
                                     <th>课程ID</th>
@@ -48,7 +47,7 @@
                                         <td>${section.teacher}</td>
                                         <c:forEach var="timetable" items="${section.timetableList}">
                                             <td>
-                                                    ${timetable.weeks}周 ${timetable.week} ${timetable.time}节
+                                                ${timetable.weeks}周 ${timetable.week} ${timetable.time}节
                                             </td>
                                             <td>${timetable.classroom}</td>
                                         </c:forEach>

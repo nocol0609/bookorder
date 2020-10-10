@@ -20,19 +20,20 @@ body {
 }
 
 #wrapper {
-    width: 100%;
+    padding-right: 410px;
+    padding-left: 410px;
 }
 
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
-        margin: 0 0 0 130px;
+        margin: 0 0 0 160px;
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
@@ -142,7 +143,7 @@ body {
     .sidebar {
         z-index: 1;
         position: absolute;
-        width: 130px;
+        width: 160px;
         margin-top: 51px;
     }
 

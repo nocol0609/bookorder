@@ -39,10 +39,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">请登录</h3>
+                    <h3 class="panel-title" align="center">请登录</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" action="${pageContext.request.contextPath}/login" method="post">

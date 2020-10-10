@@ -28,4 +28,9 @@ public class MainController {
     public String teacherMainView() {
         return "/teacher/main";
     }
+
+    @RequestMapping("supplier")
+    public String supplierMainView() {
+        return "/supplier/main";
+    }
 }

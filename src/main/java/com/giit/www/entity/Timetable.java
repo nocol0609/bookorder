@@ -8,9 +8,9 @@ package com.giit.www.entity;
 public class Timetable {
     int secId;    //课程id
     String time;  //第几节课
-    String weeks;
-    String week;
-    String classroom;
+    String weeks; //周次
+    String week;  //星期几
+    String classroom; //教室
 
     public int getSecId() {
         return secId;

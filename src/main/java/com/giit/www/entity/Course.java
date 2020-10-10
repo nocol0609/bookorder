@@ -9,7 +9,7 @@ public class Course {
     String courseTitle; //课程名称
     String type;
     String speciality;  //所属专业
-    float credits;
+    float credits; //学分
 
     public String getCourseTitle() {
         return courseTitle;

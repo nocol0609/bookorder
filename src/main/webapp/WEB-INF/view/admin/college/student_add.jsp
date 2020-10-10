@@ -52,11 +52,16 @@
                                 <label>班级</label>
                                 <input class="form-control" name="className">
                                 <label>生源地</label>
-                                <input class="form-control" name="studentOriginBase">                      
+                                <input class="form-control" name="studentOriginBase">
+                                <label>所属学院</label>
+                                <select class="form-control" name="deptName">
+                                    <c:forEach var="deptName" items="${deptNameList}">
+                                        <option>${deptName}</option>
+                                    </c:forEach>
+                                </select>
+                                <br>
                                 <label></label>
-                                <button type="submit"
-                                        class="btn btn-primary form-control">添加
-                                </button>
+                                <button type="submit" class="btn btn-primary form-control">添加</button>
                             </form>
                         </div>
                         <!-- /.table-responsive -->

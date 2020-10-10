@@ -42,7 +42,7 @@
                                     <tbody>
                                     <c:forEach var="specName" items="${entry.specName}">
                                         <tr>
-                                            <td width="150">${specName}</td>
+                                            <td width="200">${specName}</td>
                                             <td width="100">
                                                 <a href="${pageContext.request.contextPath}/spec.do/spec_update.view?specName=${specName}">修改</a>
                                             </td>

@@ -27,8 +27,8 @@ public class DeptBizImpl implements DeptBiz {
         deptDao.add(deptName);
     }
 
-    public void update(Dept dept) {
-        deptDao.update(dept);
+    public void update(String deptId, String deptName) {
+        deptDao.update(deptId,deptName);
     }
 
     public void delete(int deptId) {

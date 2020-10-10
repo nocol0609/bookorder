@@ -50,7 +50,7 @@ public class OrderBookBizImpl implements OrderBookBiz {
     @Transactional
     @Override
     public void add(OrderBookVo orderBookVo) {
-        String staffId = orderBookVo.getStaffId();
+        String staffNo = orderBookVo.getStaffNo();
         Map forms = orderBookVo.getMap();
         Iterator iterator = forms.entrySet().iterator();
 
@@ -88,8 +88,8 @@ public class OrderBookBizImpl implements OrderBookBiz {
                 OrderBook orderBook = new OrderBook();
                 orderBook.setIsbn(isbn);
                 orderBook.setBookTitle(bookTitle);
-                //orderBook.setDateOfPrinting(dataOfPringting);
-                orderBook.setStaffId(staffId);
+                orderBook.setDateOfPrinting(dataOfPringting);
+                orderBook.setStaffNo(staffNo);
                 orderBook.setRemark(remark);
                 orderBook.setSecId(secId);
                 orderBook.setApproval(false);
@@ -110,7 +110,7 @@ public class OrderBookBizImpl implements OrderBookBiz {
 
     @Transactional
     @Override
-    public void update(ChangedItems changedItems, String staffId) {
+    public void update(ChangedItems changedItems, String staffNo) {
         boolean usedByOtherSec = false;
         int secId = changedItems.getSecID();
         List<ChangedItems.AlterItem> alterItemList = changedItems.getAlterItemList();
@@ -158,7 +158,7 @@ public class OrderBookBizImpl implements OrderBookBiz {
             orderBookDao.delete(secId, bookTitle, isbn);
             OrderBook orderBook = new OrderBook();
             orderBook.setSecId(secId);
-            orderBook.setStaffId(staffId);
+            orderBook.setStaffNo(staffNo);
             orderBook.setIsbn(newIsbn);
             orderBook.setBookTitle(newBookTitle);
             orderBook.setRemark(newRemark);

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.giit.www.college.dao.TeacherDao">
+    <resultMap id="teacher_map" type="Teacher">
+        <id property="staffId" column="staff_id"/>
+        <result property="staffNo" column="staff_no"/>
+        <result property="staffName" column="staff_name"/>
+        <result property="sex" column="sex"/>
+        <result property="degree" column="degree"/>
+        <result property="title" column="title"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="moble" column="moble"/>
+    </resultMap>
+
+    <resultMap id="teachedCourseMap" type="com.giit.www.entity.custom.TeachedCourseVo">
+        <result property="courseTitle" column="course_title"/>
+        <result property="type" column="type"/>
+        <result property="credits" column="credits"/>
+        <result property="weeks" column="weeks"/>
+        <result property="week" column="week"/>
+        <result property="time" column="time"/>
+        <result property="classRoom" column="classroom"/>
+    </resultMap>
+
+    <resultMap id="studentMarkMap" type="com.giit.www.entity.custom.MarkVo">
+        <result property="courseTitle" column="course_title"/>
+        <result property="studentId" column="student_id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="gender" column="gender"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
+    <select id="findStudentMarkBySecId" parameterType="String" resultMap="studentMarkMap">
+        select s.student_id,s.student_name,s.gender,t.score
+        from takes t,student s
+        where t.student_id=s.student_id
+        and t.sec_id=#{secId}
+    </select>
+
+    <update id="updateStudentMark" parameterType="com.giit.www.entity.custom.MarkVo">
+        UPDATE takes
+        SET score = #{score}
+        WHERE student_id = #{studentId} and sec_id=#{secId}
+    </update>
+
+    <select id="findTeachedCourse" parameterType="String" resultMap="teachedCourseMap">
+        select se.course_title,c.type,c.credits,t.weeks,t.week,t.time,t.classroom
+        from section se
+        left join staff s on se.staff_id=s.staff_id
+        inner join course c on se.course_title=c.course_title
+        left join timetable t on se.sec_id=t.sec_id
+        where se.staff_id=#{staffId}
+    </select>
+
+
+    <select id="findAll" resultMap="teacher_map">
+        SELECT * FROM staff
+    </select>
+
+    <insert id="add" parameterType="com.giit.www.entity.Teacher">
+        INSERT INTO staff(
+        staff_no,staff_name,sex,degree,
+        title,dept_name,moble)
+        VALUES(
+        #{staffNo},
+        #{staffName},
+        #{sex},
+        #{degree},
+        #{title},
+        #{deptName},
+        #{moble})
+    </insert>
+    
+    <delete id="delete" parameterType="Teacher">
+        DELETE FROM staff WHERE staff_no = #{staffNo}
+    </delete>
+
+    <update id="update" parameterType="com.giit.www.entity.Teacher">
+        UPDATE staff
+        SET staff_name = #{staffName},
+        sex = #{sex},degree = #{degree},title = #{title},
+        dept_name = #{deptName},moble = #{moble}
+        WHERE staff_no = #{staffNo}
+    </update>
+
+    <select id="findTeacherByStaffNo" parameterType="Teacher" resultMap="teacher_map">
+        select * from staff where staff_no=#{staffNo}
+    </select>
+</mapper>

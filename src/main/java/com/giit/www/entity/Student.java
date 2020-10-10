@@ -16,6 +16,23 @@ public class Student {
 	String telephoneNumber;
 	String studentOriginBase; // 生源地
 	String gender;
+	String deptName;
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getStudentId() {
 		return studentId;
@@ -29,14 +46,14 @@ public class Student {
 		return studentName;
 	}
 
-	public String getPassword() {
+	/*public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+*/
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}

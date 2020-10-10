@@ -30,10 +30,10 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <form action="${pageContext.request.contextPath}/dept.do/update" method="post">
-                                <label name="id">学院名 : ${param.deptName}</label>
+                            <form action="${pageContext.request.contextPath}/dept.do/update" method="get">
+                                <label name="id">学院名 : ${deptName}</label>
                                 <input style="display:none" name="deptId"
-                                       value="${param.deptId}">
+                                       value="${deptId}">
 
                                 <p></p>
                                 <label>新学院名</label>

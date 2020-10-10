@@ -18,4 +18,6 @@ public interface StudentBiz {
     public void update(Student student);
 
     public void delete(String studentId);
+
+    Student findStudentByStudentId(String studentId);
 }

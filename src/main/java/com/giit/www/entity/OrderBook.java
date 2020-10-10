@@ -6,19 +6,28 @@ package com.giit.www.entity;
  *
  */
 public class OrderBook {
-    String staffId;     //
+    String staffNo;     //
+    String DateOfPrinting;
     String bookTitle;   //教材名
     String isbn;        //教材便编号
     String remark;
     int secId;          //所属课程id
     boolean approval;   //订购的数量
 
-    public String getStaffId() {
-        return staffId;
+    public String getDateOfPrinting() {
+        return DateOfPrinting;
     }
 
-    public void setStaffId(String staffId) {
-        this.staffId = staffId;
+    public void setDateOfPrinting(String dateOfPrinting) {
+        DateOfPrinting = dateOfPrinting;
+    }
+
+    public String getStaffNo() {
+        return staffNo;
+    }
+
+    public void setStaffNo(String staffNo) {
+        this.staffNo = staffNo;
     }
 
     public String getBookTitle() {

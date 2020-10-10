@@ -2,9 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="com.giit.www.college.dao.TakesDao">
+
+    <resultMap id="selectedCourseMap" type="com.giit.www.entity.custom.SelectedCourseCustom">
+        <result property="courseTitle" column="course_title"/>
+        <result property="staffName" column="staff_name"/>
+        <result property="year" column="year"/>
+        <result property="type" column="type"/>
+        <result property="credits" column="credits"/>
+        <result property="limitCount" column="limitCount"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
+    <resultMap id="TakesMap" type="com.giit.www.entity.Takes">
+        <result property="studentId" column="student_id"/>
+        <result property="secId" column="sec_id"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
 
     <select id="getStdCountInSection" parameterType="int" resultType="int">
         SELECT count(student_id) FROM takes WHERE sec_id = #{value}
@@ -17,4 +32,33 @@
     <delete id="delete" parameterType="map">
         DELETE FROM takes WHERE student_id = #{stdId} AND sec_id = #{secId}
     </delete>
+
+    <!--已选课程-->
+    <select id="findStudentAndSelectCourseListByName" parameterType="String" resultMap="selectedCourseMap">
+        select a.sec_id,d.course_title,c.staff_name,b.year,d.type,d.credits,b.limitCount
+        from takes a
+        INNER JOIN section b on b.sec_id=a.sec_id
+        LEFT  JOIN staff c ON c.staff_id=b.staff_id
+        INNER JOIN course d ON d.course_title=b.course_title
+        and a.student_id=#{StudentId}
+    </select>
+
+
+    <!--已选课程-->
+    <select id="findHasPlayedCourse" parameterType="String" resultMap="selectedCourseMap">
+        select a.sec_id,d.course_title,c.staff_name,b.year,d.type,d.credits,b.limitCount,a.score
+        from takes a
+        INNER JOIN section b on b.sec_id=a.sec_id
+        LEFT  JOIN staff c ON c.staff_id=b.staff_id
+        INNER JOIN course d ON d.course_title=b.course_title
+        and a.student_id=#{StudentId}
+        and a.score is not NULL
+    </select>
+
+    <select id="findTakesByStuIdAndSecId" parameterType="map" resultMap="TakesMap">
+        select *
+        from takes t
+        where t.sec_id=#{secId} and t.student_id=#{studentId}
+    </select>
+
 </mapper>

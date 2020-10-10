@@ -2,7 +2,6 @@ package com.giit.www.system.service.impl;
 
 import com.giit.www.college.dao.StaffDao;
 import com.giit.www.entity.Role;
-import com.giit.www.entity.Staff;
 import com.giit.www.entity.User;
 import com.giit.www.entity.custom.UserVo;
 import com.giit.www.system.dao.RoleDao;
@@ -38,6 +37,7 @@ public class UserBizImpl implements UserBiz {
 
     @Resource
     private PasswordHelper passwordHelper;
+
     @Resource(name = "roleBizImpl")
     private RoleBiz roleBiz;
 
@@ -97,9 +97,9 @@ public class UserBizImpl implements UserBiz {
         //添加用户
         userDao.add(user);    //填充用户RoleId的占位符由重写的RoleId分割方法填充
         
-        /**
+       /* *//**
          * 下面是添加老师用户时，将老师插入到任课老师的表内
-         */
+         *//*
         String id = user.getUserId();  //admin、student、teacher、supplier
         String teacherRoleId = roleDao.findByDescription("老师").getId().toString();
         
@@ -109,7 +109,7 @@ public class UserBizImpl implements UserBiz {
             staff.setStaffId(id);
             staff.setStaffName(id);
             staffDao.add(staff);
-        }
+        }*/
 
 
     }

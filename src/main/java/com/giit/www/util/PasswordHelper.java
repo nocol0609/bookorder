@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class PasswordHelper {
 
-    private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
+    private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();  //随机数产生器
 
-    private String algorithmName = "md5";
-    private int hashIterations = 1;
+    private String algorithmName = "md5";  //加密算法
+    private int hashIterations = 1; //加密次数
 
     public void setRandomNumberGenerator(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
@@ -39,7 +39,7 @@ public class PasswordHelper {
         String newPassword = new SimpleHash(
                 algorithmName,
                 user.getPassword(),
-                ByteSource.Util.bytes(user.getCredentialsSalt()),
+                ByteSource.Util.bytes(user.getCredentialsSalt()), //salt
                 hashIterations).toHex();
 
         user.setPassword(newPassword);

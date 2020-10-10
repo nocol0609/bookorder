@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
+
 <jsp:include page="/WEB-INF/view/teacher/nav.jsp"></jsp:include>
 
 
@@ -44,7 +55,7 @@
                     <thead>
                     <tr>
                         <th>书名</th>
-                        <th>Isbn</th>
+                        <th>图书编号</th>
                         <th>印刷日期</th>
                         <th>作者</th>
                         <th>出版社</th>

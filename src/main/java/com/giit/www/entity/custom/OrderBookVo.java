@@ -8,15 +8,15 @@ import java.util.Map;
  *
  */
 public class OrderBookVo {
-    String staffId;
+    String staffNo;
     Map map;
 
-    public String getStaffId() {
-        return staffId;
+    public String getStaffNo() {
+        return staffNo;
     }
 
-    public void setStaffId(String staffId) {
-        this.staffId = staffId;
+    public void setStaffNo(String staffNo) {
+        this.staffNo = staffNo;
     }
 
     public Map getMap() {

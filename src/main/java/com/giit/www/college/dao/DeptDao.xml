@@ -27,7 +27,7 @@
     <select id="findIdByName" parameterType="String" resultType="String">
         SELECT dept_id FROM department WHERE dept_name = #{value}
     </select>
-    <update id="update" parameterType="Dept">
+    <update id="update" parameterType="map">
         UPDATE department SET dept_name = #{deptName} WHERE dept_id = #{deptId}
     </update>
 

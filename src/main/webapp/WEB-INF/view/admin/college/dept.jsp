@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>${dept.deptName}</td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/dept.do/update?deptId=${dept.deptId}&deptName=${dept.deptName}">修改</a>
+                                            <a href="${pageContext.request.contextPath}/dept.do/dept_update.view?deptId=${dept.deptId}&deptName=${dept.deptName}">修改</a>
                                         </td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/dept.do/delete?deptId=${dept.deptId}"

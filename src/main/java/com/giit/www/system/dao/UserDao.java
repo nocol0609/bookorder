@@ -23,7 +23,7 @@ public interface UserDao {
 
     public User findByIdAndPassword(@Param("id") String username, @Param("password") String password);
 
-    public void updatePassword(@Param("userId") String id, @Param("password") String password);
+    public void updatePassword(@Param("userId") String id, @Param("password") String password,@Param("salt") String salt);
 
     User findByUsername(String username);
 }

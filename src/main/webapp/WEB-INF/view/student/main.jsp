@@ -1,12 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
+
 <jsp:include page="/WEB-INF/view/student/nav.jsp"></jsp:include>
 
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">学生主页</h1>
+            <h1 class="page-header">学生面板</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -37,3 +48,5 @@
 </div>
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
+</body>
+</html>

@@ -48,6 +48,7 @@
 
                                 <label>可选课人数</label>
                                 <input class="form-control" name="limitCount">
+
                                 <label>开设时间</label>
                                 <select class="form-control" name="year">
                                     <c:forEach var="term" items="${termList}">

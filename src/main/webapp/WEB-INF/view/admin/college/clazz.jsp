@@ -10,13 +10,12 @@
         }
     </style>
 </head>
-<body>
 
+<body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
 <script src=""></script>
 <!-- Page Content -->
 <div id="page-wrapper">
-
     <div class="container-fluid">
         <div>
             <h1 class="page-header">班级管理</h1>
@@ -32,7 +31,6 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-
                                 <thead>
                                 <tr>
                                     <th>所属专业</th>

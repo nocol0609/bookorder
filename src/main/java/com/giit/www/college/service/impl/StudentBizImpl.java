@@ -82,4 +82,9 @@ public class StudentBizImpl implements StudentBiz {
         }
     }
 
+    @Override
+    public Student findStudentByStudentId(String studentId) {
+        return studentDao.findStudentByStudentId(studentId);
+    }
+
 }

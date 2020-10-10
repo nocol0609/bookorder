@@ -14,6 +14,7 @@
         <result property="telephoneNumber" column="telephone_number"/>
         <result property="studentOriginBase" column="student_origin_base"/>
         <result property="gender" column="gender"/>
+        <result property="deptName" column="dept_name"/>
     </resultMap>
     <select id="findAll" resultMap="student_map">
         SELECT * FROM student
@@ -23,7 +24,7 @@
         INSERT INTO student
         (
         student_id,student_name,id_card,year,class_name,
-        telephone_number,student_origin_base,gender
+        telephone_number,student_origin_base,gender,dept_name
         )
         VALUES
         (
@@ -34,19 +35,23 @@
         #{className},
         #{telephoneNumber},
         #{studentOriginBase},
-        #{gender})
+        #{gender},
+        #{deptName})
     </insert>
     
     <delete id="delete" parameterType="Student">
         DELETE FROM student WHERE student_id = #{studentId}
     </delete>
 
-    <update id="update" parameterType="Student">
+    <update id="update" parameterType="com.giit.www.entity.Student">
         UPDATE student
-        SET student_name = #{studentName},id_card = #{IdCard},
+        SET student_name = #{studentName},id_card = #{idCard},
         year = #{year},class_name = #{className},telephone_number = #{telephoneNumber},
-        student_origin_base = #{studentOriginBase},gender = #{gender},photo = #{photo}
+        student_origin_base = #{studentOriginBase},gender = #{gender},dept_name=#{deptName}
         WHERE student_id = #{studentId}
     </update>
 
+    <select id="findStudentByStudentId" parameterType="Student" resultMap="student_map">
+        select * from student where student_id=#{studentId}
+    </select>
 </mapper>

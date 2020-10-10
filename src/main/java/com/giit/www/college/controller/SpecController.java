@@ -7,6 +7,7 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -25,7 +26,7 @@ public class SpecController {
     @RequiresRoles("admin")
     @RequestMapping("spec_add.view")
     public String specAddView(Model m) {
-        m.addAttribute("deptNameList", specBiz.findDpet());  //将所有系带到下拉框
+        m.addAttribute("deptNameList", specBiz.findDpet());  //将所有学院带到下拉框
         return "/admin/college/spec_add";    //跳转增加专业界面
     }
 
@@ -38,13 +39,18 @@ public class SpecController {
     
     @RequiresRoles("admin")
     @RequestMapping("spec_update.view")
-    public String specUpdateView(Model m) {
-        return "/admin/college/spec_update";  //跳转修改专业界面
+    public ModelAndView specUpdateView(@Param("specName") String specName) throws Exception {
+        specName=new String(specName .getBytes("iso8859-1"),"utf-8");
+        ModelAndView modelAndView=new ModelAndView("/admin/college/spec_update");
+        modelAndView.addObject("specName",specName);
+        return modelAndView;  //跳转修改专业界面
     }
     
     @RequiresRoles("admin")
     @RequestMapping("update")
-    public String update(@Param("specName") String newSpecName, @Param("newSpecName") String specName) {
+    public String update(@Param("specName") String specName, @Param("newSpecName") String newSpecName) throws Exception {
+        specName = new String(specName .getBytes("iso8859-1"),"utf-8");
+        newSpecName = new String(newSpecName .getBytes("iso8859-1"),"utf-8");
         specBiz.update(specName, newSpecName);
         return "redirect:/spec.do/spec.view";
     }
@@ -52,13 +58,15 @@ public class SpecController {
     @RequiresRoles("admin")
     @RequestMapping("add")
     public String add(Spec spec) {
+        System.out.println("添加的专业---"+spec);
         specBiz.add(spec);
         return "redirect:/spec.do/spec.view";
     }
     
     @RequiresRoles("admin")
     @RequestMapping("delete")
-    public String delete(String specName) {
+    public String delete(String specName)throws  Exception {
+        specName = new String(specName .getBytes("iso8859-1"),"utf-8");
         specBiz.delete(specName);
         return "redirect:/spec.do/spec.view";
     }

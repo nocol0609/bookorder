@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <jsp:include page="/WEB-INF/view/supplier/nav.jsp"></jsp:include>
 <!-- Page Content -->
 <div id="page-wrapper">
@@ -46,6 +57,7 @@
                                         </tbody>
                                     </table>
                                 </form>
+                                <a href="${pageContext.request.contextPath}/supplier.do/exportOrderBook" class="btn btn-primary" role="button">导出书单</a>
                             </div>
                         </div>
                         <!-- /.panel-body -->
@@ -56,7 +68,6 @@
             </div>
             <!-- /.row-->
         </div>
-
     </div>
     <!-- /.container-fluid -->
 </div>
@@ -68,3 +79,5 @@
 <!-- /#wrapper -->
 <jsp:include page="/bottom.jsp"></jsp:include>
 
+</body>
+</html>

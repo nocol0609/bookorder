@@ -2,15 +2,18 @@ package com.giit.www.college.controller;
 
 import com.giit.www.college.service.DeptBiz;
 import com.giit.www.entity.Dept;
+import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
- * 系控制器
+ * 学院控制器
  * @author Nocol
  *
  */
@@ -24,7 +27,8 @@ public class DeptController {
     @RequiresRoles("admin")
     @RequestMapping("dept.view")
     public String deptView(Model m) {
-        m.addAttribute("deptList", deptBiz.findAll());
+        List<Dept> deptList= deptBiz.findAll();
+        m.addAttribute("deptList", deptList);
         return "/admin/college/dept";
     }
 
@@ -36,22 +40,27 @@ public class DeptController {
 
     @RequiresRoles("admin")
     @RequestMapping("dept_update.view")
-    public String deptUpdateView(Model m) {
-        return "/admin/college/dept_update";  //跳转修改界面
+    public ModelAndView deptUpdateView(@Param("deptId") String deptId,@Param("deptName") String deptName) throws Exception {
+        deptName = new String(deptName .getBytes("iso8859-1"),"utf-8");
+        ModelAndView modelAndView=new ModelAndView("/admin/college/dept_update");
+        modelAndView.addObject("deptId",deptId);
+        modelAndView.addObject("deptName",deptName);
+        return modelAndView;  //跳转修改界面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("add")
     public String add(String deptName) {
         deptBiz.add(deptName);
-        return "redirect:/dept.do/dept.view";  //增加系后经controler返回系部管理页面
+        return "redirect:/dept.do/dept.view";  //增加学院后经controler返回系部管理页面
     }
 
     @RequiresRoles("admin")
     @RequestMapping("update")
-    public String update(Dept dept) {
-        deptBiz.update(dept);
-        return "redirect:/dept.do/dept.view";  //修改系后经controler返回系部管理页面
+    public String update(@Param("deptId") String deptId, @Param("deptName") String deptName) throws Exception {
+        deptName = new String(deptName .getBytes("iso8859-1"),"utf-8");
+        deptBiz.update(deptId,deptName);
+        return "redirect:/dept.do/dept.view";  //修改学院后经controler返回系部管理页面
     }
 
     @RequiresRoles("admin")

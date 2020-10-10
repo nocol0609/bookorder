@@ -14,7 +14,7 @@
         <result property="dateOfPrinting" column="date_of_printing"/>
         <result property="author" column="author"/>
         <result property="category" column="category"/>
-        <result property="unitPrice" column="unitPrice"/>
+        <result property="unitPrice" column="unit_price"/>
         <result property="remark" column="remark"/>
     </resultMap>
 
@@ -24,7 +24,7 @@
         <collection property="bookInfoList" ofType="BookInfo">
             <result property="bookTitle" column="book_title"/>
             <result property="isbn" column="isbn"/>
-            <result property="dataOfPrinting" column="data_of_printing"/>
+            <result property="dateOfPrinting" column="date_of_printing"/>
             <result property="author" column="author"/>
             <result property="press" column="press"/>
             <result property="category" column="category"/>
@@ -43,7 +43,7 @@
     </resultMap>
 
     <insert id="add" parameterType="OrderBook">
-        INSERT INTO order_book(staff_id,sec_id,book_title,isbn,remark,approval) VALUES(#{staffId},#{secId},#{bookTitle},#{isbn},#{remark},#{approval})
+        INSERT INTO order_book(staff_no,sec_id,book_title,isbn,remark,approval) VALUES(#{staffNo},#{secId},#{bookTitle},#{isbn},#{remark},#{approval})
     </insert>
 
     <select id="findAddedBookInfoList" parameterType="String" resultMap="addedBookInfo_map">
@@ -51,7 +51,7 @@
                 FROM order_book
                 INNER JOIN book ON order_book.book_title = book.book_title AND order_book.isbn = book.isbn
                 INNER JOIN section ON order_book.sec_id = section.sec_id
-                WHERE order_book.staff_id = #{value}
+                WHERE order_book.staff_no = #{value}
     </select>
 
     <select id="usedByOtherSec" parameterType="map" resultType="int">

@@ -1,5 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            background: url(${pageContext.request.contextPath}/img/b.jpg)repeat;
+        }
+    </style>
+</head>
+<body>
 <c:if test="${addedBookInfoList != null}">
     <div class="panel panel-default">
         <div class="panel-body" id="alterPanel">
@@ -27,7 +37,7 @@
                                             <thead>
                                             <tr>
                                                 <th>书名</th>
-                                                <th>Isbn</th>
+                                                <th>图书编号</th>
                                                 <th>印刷日期</th>
                                                 <th>作者</th>
                                                 <th>出版社</th>
@@ -46,13 +56,13 @@
                                                                disabled="disabled"
                                                                onchange="addNewValue(this)">
                                                     </td>
-                                                    <td class="col-md-3">
+                                                    <td class="col-md-2">
                                                         <input type="text" class="form-control"
                                                                value="${bookInfo.isbn}"
                                                                disabled="disabled"
                                                                onchange="addNewValue(this)">
                                                     </td>
-                                                    <td class="col-md-1">
+                                                    <td class="col-md-2">
                                                         <input type="text" class="form-control"
 
                                                                value="${bookInfo.dateOfPrinting}"
@@ -102,14 +112,14 @@
                                                                disabled="disabled"
                                                                onchange="addNewValue(this)">
                                                     </td>
-                                                    <td class="col-lg-1">
+                                                    <%--<td class="col-lg-1">
                                                         <button type="button"
                                                                 class="btn btn-danger btn-circle pull-right"
                                                                 onclick="deleteRow(this)"
-                                                                disabled="disabled">
+                                                                >
                                                             <i class="fa fa-minus"></i>
                                                         </button>
-                                                    </td>
+                                                    </td>--%>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
@@ -127,3 +137,5 @@
         </div>
     </div>
 </c:if>
+</body>
+</html>

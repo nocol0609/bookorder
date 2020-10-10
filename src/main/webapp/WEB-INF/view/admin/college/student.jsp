@@ -10,16 +10,17 @@
         }
     </style>
 </head>
+
 <body>
 <jsp:include page="/WEB-INF/view/admin/nav.jsp"></jsp:include>
+<script src=""></script>
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
             <h1 class="page-header">学生管理</h1>
         </div>
-        <div class="panel-heading">
-        </div>
+        <%--<c:forEach var="entrty" items="${classBelongSpec}">--%>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -40,9 +41,13 @@
                                     <th>班级</th>
                                     <th>年级</th>
                                     <th>生源地</th>
+                                    <th>所属学院</th>
+                                    <th >操作</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <%--<c:forEach var="className" items="${entrty.value}">--%>
                                 <c:forEach var="student" items="${studentList}">
                                     <tr>
                                         <td>${student.studentId}</td>
@@ -53,6 +58,7 @@
                                         <td>${student.className}</td>
                                         <td>${student.year}</td>
                                         <td>${student.studentOriginBase}</td>
+                                        <td>${student.deptName}</td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/student.do/student_update.view?studentId=${student.studentId}">修改</a>
                                         </td>
@@ -62,9 +68,9 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
+                                <%--</c:forEach>--%>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/student.do/student_add.view" class="btn btn-primary" role="button">添加学生</a>
                         </div>
                         <!-- /.table-responsive -->
                     </div>
@@ -74,8 +80,11 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
-    </div>
 
+        <%--</c:forEach>--%>
+
+    </div>
+    <a href="${pageContext.request.contextPath}/student.do/student_add.view" class="btn btn-primary" role="button">添加学生</a>
     <!-- /.container-fluid -->
 </div>
 </div>
@@ -84,6 +93,6 @@
 <!-- /#wrapper -->
 
 <jsp:include page="/bottom.jsp"></jsp:include>
+
 </body>
 </html>
-

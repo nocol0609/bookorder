@@ -14,7 +14,7 @@ public interface DeptBiz {
 
     public void add(String deptName);
 
-    public void update(Dept dept);
+    public void update(String deptId,String deptName);
 
     public void delete(int deptId);
 
